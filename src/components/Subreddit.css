@@ -1,0 +1,26 @@
+.post {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 40%;
+    margin: 30px auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 10px rgb(164, 164, 167);
+    border-radius: 5px;
+    align-items: center;
+}
+.post li {
+    min-width: 100%;
+    font-size: 20px;
+    list-style: none;
+    padding: 10px 10px;
+}
+.post img {
+    display: block;
+    width: 90%;
+    padding: 20px 0;
+    object-fit: cover;  
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
