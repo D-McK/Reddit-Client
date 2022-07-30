@@ -1,28 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { getFrontPage } from "../api/RedditAPIs";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchSubreddit,
+  selectPosts,
+  selectStatus,
+  selectSubreddit,
+} from "../store/subredditSlice";
 import "./Subreddit.css";
 
 export const Subreddit = () => {
-  const [subredditInfo, setSubredditInfo] = useState([]);
+  const dispatch = useDispatch();
+
+  const selectedPosts = useSelector(selectPosts);
+  const selectedSubreddit = useSelector(selectSubreddit);
+  const loadingStatus = useSelector(selectStatus);
 
   useEffect(() => {
-    const getPage = async () => {
-      const data = await getFrontPage();
-      console.log(data);
-      setSubredditInfo(data);
-    };
-    getPage();
-  }, []);
-  //{subredditInfo.map((post) => console.log(post.data))}
+    console.log(loadingStatus);
+    if (loadingStatus === "idle") {
+      dispatch(fetchSubreddit(selectedSubreddit));
+    }
+  }, [dispatch, loadingStatus, selectedPosts, selectedSubreddit]);
+
+  if (loadingStatus === "loading" || selectedPosts.length === 0) {
+    return (
+      <div>
+        <h1>Loading Posts...</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
-      {subredditInfo.map((post) => {
+      {selectedPosts[0].map((post, index) => {
         return (
-          <div className="post">
-            <li>{post.data.title}</li>
+          <div className="post" key={index}>
+            {console.log(post)}
+            <li key={index}>{post.data.title}</li>
             {post.data.url.includes("i.redd.it") ? (
-              <img src={post.data.url} />
+              <img src={post.data.url} alt={post.data.subreddit} />
             ) : null}
           </div>
         );
