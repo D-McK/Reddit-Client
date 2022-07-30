@@ -4,7 +4,8 @@ import { getFrontPage } from "../api/RedditAPIs";
 const initialSate = {
   posts: [],
   status: "idle",
-  subreddit: "r/all",
+  subreddit: "all",
+  typedsubreddit: "",
 };
 
 export const fetchSubreddit = createAsyncThunk(
@@ -23,7 +24,10 @@ export const subredditSlice = createSlice({
       state.posts.push(action.payload);
     },
     changeSubreddit: (state, action) => {
-      state.subreddit = action.payload;
+      state.subreddit = state.typedsubreddit;
+    },
+    changeSearch: (state, action) => {
+      state.typedsubreddit = action.payload;
     },
   },
   extraReducers: {
@@ -40,9 +44,11 @@ export const subredditSlice = createSlice({
   },
 });
 
-export const { subreddit } = subredditSlice.actions;
+export const { subreddit, changeSubreddit, changeSearch } =
+  subredditSlice.actions;
 export const selectPosts = (state) => state.subreddit.posts;
 export const selectSubreddit = (state) => state.subreddit.subreddit;
 export const selectStatus = (state) => state.subreddit.status;
+export const selectSearch = (state) => state.subreddit.typedsubreddit;
 
 export default subredditSlice.reducer;
