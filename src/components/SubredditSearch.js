@@ -5,6 +5,7 @@ import {
   changeSubreddit,
   selectSearch,
 } from "../store/subredditSlice";
+import "./SubredditSearch.css";
 
 export const SubredditSearch = () => {
   const dispatch = useDispatch();
@@ -12,21 +13,29 @@ export const SubredditSearch = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(typedSubreddit);
     dispatch(changeSubreddit(typedSubreddit));
   };
 
   return (
-    <div>
-      <h2>Search For Subreddit</h2>
-      <form onSubmit={submitHandler}>
-        <input
-          id="outlined-basic"
-          label="Search Subreddits"
-          onChange={({ target }) => dispatch(changeSearch(target.value))}
+    <div className="search-container">
+      <div className="search-bar">
+        <p>Search For Subreddit</p>
+        <form onSubmit={submitHandler}>
+          <input
+            className="search-box"
+            label="Search Subreddits"
+            onChange={({ target }) => dispatch(changeSearch(target.value))}
+          />
+          <input type="submit" className="submit" value="Search!" />
+        </form>
+      </div>
+      <div className="logo-bar">
+        <img
+          src={
+            "https://upload.wikimedia.org/wikipedia/en/5/58/Reddit_logo_new.svg"
+          }
         />
-        <input type="submit" />
-      </form>
+      </div>
     </div>
   );
 };

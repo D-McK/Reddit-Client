@@ -16,11 +16,8 @@ export const Subreddit = () => {
   const loadingStatus = useSelector(selectStatus);
 
   useEffect(() => {
-    console.log(loadingStatus);
-    if (loadingStatus === "idle") {
-      dispatch(fetchSubreddit(selectedSubreddit));
-    }
-  }, [dispatch, loadingStatus, selectedPosts, selectedSubreddit]);
+    dispatch(fetchSubreddit(selectedSubreddit));
+  }, [selectedSubreddit, dispatch]);
 
   if (loadingStatus === "loading" || selectedPosts.length === 0) {
     return (
@@ -32,7 +29,7 @@ export const Subreddit = () => {
 
   return (
     <div>
-      {selectedPosts[0].map((post, index) => {
+      {selectedPosts.map((post, index) => {
         return (
           <div className="post" key={index}>
             <li key={index}>{post.data.title}</li>

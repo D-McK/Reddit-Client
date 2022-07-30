@@ -1,0 +1,28 @@
+.search-container{
+    display: flex;
+    padding: 10px;
+}
+
+.logo-bar{
+    padding-left: 40px;
+}
+
+.search-bar{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 10px rgb(164, 164, 167);
+    border-radius: 5px;
+}
+.search-bar p{
+    font-size: 20px;
+}
+.search-bar .search-box{
+    width: 100%;
+}
+.search-bar .submit{
+    margin: 10px;
+    font-size: 20px;
+}

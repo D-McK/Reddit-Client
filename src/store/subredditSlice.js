@@ -23,7 +23,7 @@ export const subredditSlice = createSlice({
     loadedPosts: (state, action) => {
       state.posts.push(action.payload);
     },
-    changeSubreddit: (state, action) => {
+    changeSubreddit: (state) => {
       state.subreddit = state.typedsubreddit;
     },
     changeSearch: (state, action) => {
@@ -39,7 +39,7 @@ export const subredditSlice = createSlice({
     },
     [fetchSubreddit.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.posts.push(action.payload);
+      state.posts = action.payload;
     },
   },
 });
