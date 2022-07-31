@@ -2,13 +2,20 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 40%;
+    max-width: 50%;
     margin: 30px auto;
     background-color: rgb(255, 255, 255);
     box-shadow: 5px 5px 10px rgb(164, 164, 167);
     border-radius: 5px;
     align-items: center;
+    transition: 0.2s;
 }
+
+.post:hover {
+    box-shadow: 10px 10px 10px rgb(164, 164, 167);
+    transition: 0.2s;
+}
+
 .post li {
     min-width: 100%;
     font-size: 20px;
@@ -17,10 +24,18 @@
 }
 .post img {
     display: block;
-    width: 90%;
     padding: 20px 0;
     object-fit: cover;  
     border-radius: 10px;
     overflow: hidden;
     margin: 0 auto;
+}
+.under-info{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.under-info text{
+    font-weight: bold;
+    padding-bottom: 10px;
 }

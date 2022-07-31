@@ -6,6 +6,7 @@ import {
   selectSearch,
 } from "../store/subredditSlice";
 import "./SubredditSearch.css";
+import RedditLogo from "../image/Reddit_logo_new.png";
 
 export const SubredditSearch = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export const SubredditSearch = () => {
 
   return (
     <div className="search-container">
+      <img src={RedditLogo} />
       <div className="search-bar">
         <p>Search For Subreddit</p>
         <form onSubmit={submitHandler}>
@@ -29,13 +31,7 @@ export const SubredditSearch = () => {
           <input type="submit" className="submit" value="Search!" />
         </form>
       </div>
-      <div className="logo-bar">
-        <img
-          src={
-            "https://upload.wikimedia.org/wikipedia/en/5/58/Reddit_logo_new.svg"
-          }
-        />
-      </div>
+      <div className="logo-bar"></div>
     </div>
   );
 };

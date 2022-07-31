@@ -27,8 +27,17 @@ export const Subreddit = () => {
     );
   }
 
+  if (loadingStatus === "failed") {
+    return (
+      <div>
+        <h1>Sorry that subreddit doesn't exist</h1>
+      </div>
+    );
+  }
+
   return (
     <div>
+      {console.log(selectedPosts)}
       {selectedPosts.map((post, index) => {
         return (
           <div className="post" key={index}>
@@ -36,6 +45,10 @@ export const Subreddit = () => {
             {post.data.url.includes("i.redd.it") ? (
               <img src={post.data.url} alt={post.data.subreddit} />
             ) : null}
+            <div className="under-info">
+              <text>Comments: {post.data.num_comments}</text>
+              <text>r/{post.data.subreddit}</text>
+            </div>
           </div>
         );
       })}
