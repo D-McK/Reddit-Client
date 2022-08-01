@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: rgb(241, 241, 242);
 }
 
 .App-logo {
@@ -36,4 +35,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+body{
+  background-image: url('./image/Untitled\ design\(3\).png');
+  background-repeat: repeat-y;
+  background-size: 100%;
 }
