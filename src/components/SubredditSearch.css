@@ -29,3 +29,17 @@
     width: 300px;
     height: 100px;
 }
+button{
+    box-shadow: 5px 5px 10px rgb(164, 164, 167);
+    padding: 0 30px;
+    transition: 0.2s;
+    border-radius: 3px;
+}
+button:hover{
+    box-shadow: 10px 10px 10px rgb(164, 164, 167);
+    transition: 0.2s;
+    background-color: #ff4300;
+    background-position: 0% 100%;
+    color: white;
+    cursor: pointer;
+}

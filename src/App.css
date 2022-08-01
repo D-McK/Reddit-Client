@@ -41,3 +41,7 @@ body{
   background-repeat: repeat-y;
   background-size: 100%;
 }
+button {
+  border: none;
+  background: none;
+}

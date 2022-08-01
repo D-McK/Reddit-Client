@@ -28,7 +28,9 @@ export const SubredditSearch = () => {
             label="Search Subreddits"
             onChange={({ target }) => dispatch(changeSearch(target.value))}
           />
-          <input type="submit" className="submit" value="Search!" />
+          <button type="submit" className="submit">
+            Search!
+          </button>
         </form>
       </div>
       <div className="logo-bar"></div>
