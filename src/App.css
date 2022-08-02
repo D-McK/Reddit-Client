@@ -45,3 +45,10 @@ button {
   border: none;
   background: none;
 }
+
+input:focus{
+  outline: none;
+  border: 2px solid #ff4300;
+  box-shadow: 0 0 5px #ff4300;
+  border-radius: 3px;
+}

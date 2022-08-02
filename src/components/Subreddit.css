@@ -17,10 +17,12 @@
 }
 
 .post li {
-    min-width: 100%;
-    font-size: 20px;
+    width: 98%;
+    font-size: 25px;
+    font-weight: bold;
     list-style: none;
     padding: 10px 10px;
+    background-color: #e9e7e7bf;
 }
 .post img {
     display: block;
@@ -34,9 +36,26 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    padding: 10px 0px;
 }
 .under-info text{
     font-weight: bold;
-    padding-bottom: 10px;
     
+}
+.chat-icon {
+    padding-right: 10px;
+    position: relative; 
+    top: 4px;
+}
+
+.comments, .subreddit-from{
+    transition: 0.2s;
+    padding: 5px
+}
+.comments:hover, .subreddit-from:hover{
+    transition: 0.2s;
+    background-color: #ff4300;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }

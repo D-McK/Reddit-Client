@@ -8,6 +8,8 @@ import {
 } from "../store/subredditSlice";
 import "./Subreddit.css";
 
+import { BsChatLeft } from "react-icons/bs";
+
 export const Subreddit = () => {
   const dispatch = useDispatch();
 
@@ -46,8 +48,11 @@ export const Subreddit = () => {
               <img src={post.data.url} alt={post.data.subreddit} />
             ) : null}
             <div className="under-info">
-              <text>Comments: {post.data.num_comments}</text>
-              <text>r/{post.data.subreddit}</text>
+              <text className="comments">
+                <BsChatLeft className="chat-icon" />
+                {`${post.data.num_comments} Comments`}
+              </text>
+              <text className="subreddit-from">r/{post.data.subreddit}</text>
             </div>
           </div>
         );
