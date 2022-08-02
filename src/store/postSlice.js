@@ -25,6 +25,9 @@ export const postSlice = createSlice({
     postSelected: (state, action) => {
       state.post = action.payload;
     },
+    clearComments: (state) => {
+      state.comments = [];
+    },
   },
   extraReducers: {
     [fetchComments.pending]: (state) => {
@@ -39,7 +42,8 @@ export const postSlice = createSlice({
     },
   },
 });
-export const { loadedComments, postSelected } = postSlice.actions;
+export const { loadedComments, postSelected, clearComments } =
+  postSlice.actions;
 
 export const selectPost = (state) => state.comments.post;
 export const selectComments = (state) => state.comments.comments;

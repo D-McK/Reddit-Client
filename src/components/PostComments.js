@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchComments, selectComments, selectPost } from "../store/postSlice";
 
+import "./PostComments.css";
+
 export const PostComments = () => {
   const dispatch = useDispatch();
   const selectedPost = useSelector(selectPost);
@@ -20,12 +22,10 @@ export const PostComments = () => {
   }
 
   return (
-    <div>
-      <ul>
-        {commentsForPost.map((comment) => {
-          return <li>{comment.data.body}</li>;
-        })}
-      </ul>
+    <div className="comment-chain">
+      {commentsForPost.map((comment) => {
+        return <li className="comment">{comment.data.body}</li>;
+      })}
     </div>
   );
 };

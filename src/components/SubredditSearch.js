@@ -6,7 +6,9 @@ import {
   selectSearch,
 } from "../store/subredditSlice";
 import "./SubredditSearch.css";
+
 import RedditLogo from "../image/Reddit_logo_new.png";
+import { BsSearch } from "react-icons/bs";
 
 export const SubredditSearch = () => {
   const dispatch = useDispatch();
@@ -19,21 +21,20 @@ export const SubredditSearch = () => {
 
   return (
     <div className="search-container">
-      <img src={RedditLogo} />
+      <img src={RedditLogo} alt="reddit logo" />
       <div className="search-bar">
-        <p>Search For Subreddit</p>
         <form onSubmit={submitHandler}>
           <input
             className="search-box"
             label="Search Subreddits"
+            placeholder="Search Subreddits"
             onChange={({ target }) => dispatch(changeSearch(target.value))}
           />
           <button type="submit" className="submit">
-            Search!
+            <BsSearch className="search-icon" />
           </button>
         </form>
       </div>
-      <div className="logo-bar"></div>
     </div>
   );
 };
