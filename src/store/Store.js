@@ -5,6 +5,6 @@ import postReducer from "./postSlice";
 export default configureStore({
   reducer: combineReducers({
     subreddit: subredditReducer,
-    post: postReducer,
+    comments: postReducer,
   }),
 });

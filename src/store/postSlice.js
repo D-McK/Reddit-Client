@@ -39,7 +39,7 @@ export const postSlice = createSlice({
     },
   },
 });
-export const { loadedComments } = postSlice.actions;
+export const { loadedComments, postSelected } = postSlice.actions;
 
 export const selectPost = (state) => state.comments.post;
 export const selectComments = (state) => state.comments.comments;

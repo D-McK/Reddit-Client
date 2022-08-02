@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   fetchSubreddit,
   selectPosts,
@@ -9,9 +10,11 @@ import {
 import "./Subreddit.css";
 
 import { BsChatLeft } from "react-icons/bs";
+import { postSelected, selectPost } from "../store/postSlice";
 
 export const Subreddit = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const selectedPosts = useSelector(selectPosts);
   const selectedSubreddit = useSelector(selectSubreddit);
@@ -48,7 +51,13 @@ export const Subreddit = () => {
               <img src={post.data.url} alt={post.data.subreddit} />
             ) : null}
             <div className="under-info">
-              <text className="comments">
+              <text
+                className="comments"
+                onClick={() => {
+                  dispatch(postSelected(post.data.permalink));
+                  navigate("/comments");
+                }}
+              >
                 <BsChatLeft className="chat-icon" />
                 {`${post.data.num_comments} Comments`}
               </text>

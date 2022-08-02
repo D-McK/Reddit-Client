@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getFrontPage } from "../api/RedditAPIs";
 
-const initialSate = {
+const initialState = {
   posts: [],
   status: "idle",
   subreddit: "all",
@@ -18,7 +18,7 @@ export const fetchSubreddit = createAsyncThunk(
 
 export const subredditSlice = createSlice({
   name: "subreddit",
-  initialState: initialSate,
+  initialState: initialState,
   reducers: {
     loadedPosts: (state, action) => {
       state.posts.push(action.payload);
