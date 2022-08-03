@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { Skeleton } from "./Skeleton";
 import {
   fetchSubreddit,
@@ -8,23 +7,29 @@ import {
   selectStatus,
   selectSubreddit,
 } from "../store/subredditSlice";
-import { clearComments, postSelected } from "../store/postSlice";
+import {
+  checkPostSelected,
+  clearComments,
+  postSelected,
+  selectedPostCommentsOpened,
+} from "../store/postSlice";
 
 import { BsChatLeft } from "react-icons/bs";
 import "./Subreddit.css";
+import { PostComments } from "./PostComments";
 
 export const Subreddit = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const selectedPosts = useSelector(selectPosts);
   const selectedSubreddit = useSelector(selectSubreddit);
   const loadingStatus = useSelector(selectStatus);
+  const isCommentsOpen = useSelector(selectedPostCommentsOpened);
 
   const loadingArr = [];
   for (let i = 0; i < 4; i++) {
     loadingArr.push(
-      <div className="post">
+      <div className="post" key={i}>
         <Skeleton />
       </div>
     );
@@ -55,20 +60,19 @@ export const Subreddit = () => {
                   <img src={post.data.url} alt={post.data.subreddit} />
                 ) : null}
                 <div className="under-info">
-                  <text
+                  <p
                     className="comments"
                     onClick={() => {
                       dispatch(postSelected(post.data.permalink));
-                      navigate("/comments");
+                      dispatch(checkPostSelected());
                     }}
                   >
                     <BsChatLeft className="chat-icon" />
                     {`${post.data.num_comments} Comments`}
-                  </text>
-                  <text className="subreddit-from">
-                    r/{post.data.subreddit}
-                  </text>
+                  </p>
+                  <p className="subreddit-from">r/{post.data.subreddit}</p>
                 </div>
+                {isCommentsOpen ? <PostComments /> : null}
               </div>
             );
           })}

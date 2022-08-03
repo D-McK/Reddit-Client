@@ -5,6 +5,7 @@ const initialState = {
   post: "",
   comments: [],
   status: "idle",
+  selected: false,
 };
 
 export const fetchComments = createAsyncThunk(
@@ -28,6 +29,9 @@ export const postSlice = createSlice({
     clearComments: (state) => {
       state.comments = [];
     },
+    checkPostSelected: (state) => {
+      state.selected = !state.selected;
+    },
   },
   extraReducers: {
     [fetchComments.pending]: (state) => {
@@ -42,11 +46,16 @@ export const postSlice = createSlice({
     },
   },
 });
-export const { loadedComments, postSelected, clearComments } =
-  postSlice.actions;
+export const {
+  loadedComments,
+  postSelected,
+  clearComments,
+  checkPostSelected,
+} = postSlice.actions;
 
 export const selectPost = (state) => state.comments.post;
 export const selectComments = (state) => state.comments.comments;
 export const selectStatus = (state) => state.comments.status;
+export const selectedPostCommentsOpened = (state) => state.comments.selected;
 
 export default postSlice.reducer;

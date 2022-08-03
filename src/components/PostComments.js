@@ -23,8 +23,12 @@ export const PostComments = () => {
 
   return (
     <div className="comment-chain">
-      {commentsForPost.map((comment) => {
-        return <li className="comment">{comment.data.body}</li>;
+      {commentsForPost.map((comment, index) => {
+        return (
+          <li className="comment" key={index}>
+            {comment.data.body}
+          </li>
+        );
       })}
     </div>
   );

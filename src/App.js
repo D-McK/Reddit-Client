@@ -3,8 +3,7 @@ import { Subreddit } from "./components/Subreddit";
 import Store from "./store/Store";
 import { Provider } from "react-redux";
 import { SubredditSearch } from "./components/SubredditSearch";
-import { PostComments } from "./components/PostComments";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
@@ -12,10 +11,7 @@ function App() {
       <Router>
         <div className="App">
           <SubredditSearch />
-          <Routes>
-            <Route path="/" element={<Subreddit />} />
-            <Route path="/comments" element={<PostComments />} />
-          </Routes>
+          <Subreddit />
         </div>
       </Router>
     </Provider>

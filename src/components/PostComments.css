@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     min-width: 100%;
+    min-height: 100%;
     flex-wrap: wrap;
     text-align: left;
 }
 
+
 .comment{
     list-style: none;
-    width: 90%;
     background-color: #e9e7e7bf;
     margin: 5px auto;
     border-radius: 5px;
