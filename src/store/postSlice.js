@@ -31,6 +31,9 @@ export const postSlice = createSlice({
     },
     checkPostSelected: (state) => {
       state.selected = !state.selected;
+      if (state.selected) {
+        state.comments = [];
+      }
     },
   },
   extraReducers: {

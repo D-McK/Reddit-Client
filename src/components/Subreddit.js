@@ -12,11 +12,12 @@ import {
   clearComments,
   postSelected,
   selectedPostCommentsOpened,
+  selectPost,
 } from "../store/postSlice";
 
 import { BsChatLeft } from "react-icons/bs";
-import "./Subreddit.css";
 import { PostComments } from "./PostComments";
+import "./Subreddit.css";
 
 export const Subreddit = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,9 @@ export const Subreddit = () => {
   const selectedPosts = useSelector(selectPosts);
   const selectedSubreddit = useSelector(selectSubreddit);
   const loadingStatus = useSelector(selectStatus);
+
   const isCommentsOpen = useSelector(selectedPostCommentsOpened);
+  const postComments = useSelector(selectPost);
 
   const loadingArr = [];
   for (let i = 0; i < 4; i++) {
@@ -63,8 +66,8 @@ export const Subreddit = () => {
                   <p
                     className="comments"
                     onClick={() => {
-                      dispatch(postSelected(post.data.permalink));
                       dispatch(checkPostSelected());
+                      dispatch(postSelected(post.data.permalink));
                     }}
                   >
                     <BsChatLeft className="chat-icon" />
@@ -72,7 +75,9 @@ export const Subreddit = () => {
                   </p>
                   <p className="subreddit-from">r/{post.data.subreddit}</p>
                 </div>
-                {isCommentsOpen ? <PostComments /> : null}
+                {isCommentsOpen && post.data.permalink === postComments ? (
+                  <PostComments />
+                ) : null}
               </div>
             );
           })}
