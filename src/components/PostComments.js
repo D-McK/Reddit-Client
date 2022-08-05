@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchComments, selectComments, selectPost } from "../store/postSlice";
 
+import { Skeleton } from "./Skeleton";
+
 import "./PostComments.css";
 
 export const PostComments = () => {
@@ -15,19 +17,25 @@ export const PostComments = () => {
 
   if (commentsForPost.length === 0) {
     return (
-      <div>
-        <h1>Loading Comments...</h1>
+      <div className="loading">
+        <Skeleton />
       </div>
     );
   }
 
   return (
     <div className="comment-chain">
+      {console.log(commentsForPost)}
       {commentsForPost.map((comment, index) => {
         return (
-          <li className="comment" key={index}>
-            {comment.data.body}
-          </li>
+          <div className="comment">
+            <p className="author" key={"author: " + index}>
+              {comment.data.author}
+            </p>
+            <li key={index} className="comment-contents">
+              {comment.data.body}
+            </li>
+          </div>
         );
       })}
     </div>

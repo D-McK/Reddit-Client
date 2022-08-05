@@ -15,7 +15,7 @@
     transition: 0.2s;
 }
 
-.post li {
+.post .title {
     width: 98%;
     font-size: 25px;
     font-weight: bold;

@@ -58,7 +58,9 @@ export const Subreddit = () => {
         : selectedPosts.map((post, index) => {
             return (
               <div className="post" key={index}>
-                <li key={index}>{post.data.title}</li>
+                <li key={index} className="title">
+                  {post.data.title}
+                </li>
                 {post.data.url.includes("i.redd.it") ? (
                   <img src={post.data.url} alt={post.data.subreddit} />
                 ) : null}

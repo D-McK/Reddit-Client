@@ -7,12 +7,27 @@
     text-align: left;
 }
 
-
 .comment{
     list-style: none;
-    background-color: #e9e7e7bf;
-    margin: 5px auto;
-    border-radius: 5px;
     font-weight: bold;
-    line-height: 200%;
+    background-color: #e9e7e7bf;
+    border-radius: 5px;
+    margin: 5px auto;
+    padding: 0px 0px 10px 10px;
+    width: 95%;
+}
+.comment-contents{
+    font-size: small;
+    font-weight: 500;
+}
+.author{
+    padding: 5px 0px;
+    margin: 0;
+}
+.loading{   
+    display: flex;
+    margin: 0 auto;
+    width: 95%;
+    padding: 10px 0px;
+    height: 75px;
 }
