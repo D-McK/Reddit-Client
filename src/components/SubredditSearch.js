@@ -16,6 +16,7 @@ export const SubredditSearch = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(typedSubreddit);
     dispatch(changeSubreddit(typedSubreddit));
   };
 

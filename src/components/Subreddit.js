@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Skeleton } from "./Skeleton";
 import {
+  changeSearch,
+  changeSubreddit,
   fetchSubreddit,
   selectPosts,
   selectStatus,
@@ -75,7 +77,15 @@ export const Subreddit = () => {
                     <BsChatLeft className="chat-icon" />
                     {`${post.data.num_comments} Comments`}
                   </p>
-                  <p className="subreddit-from">r/{post.data.subreddit}</p>
+                  <p
+                    className="subreddit-from"
+                    onClick={() => {
+                      dispatch(changeSearch(post.data.subreddit));
+                      dispatch(changeSubreddit());
+                    }}
+                  >
+                    r/{post.data.subreddit}
+                  </p>
                 </div>
                 {isCommentsOpen && post.data.permalink === postComments ? (
                   <PostComments />

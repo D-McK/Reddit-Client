@@ -25,19 +25,20 @@ export const PostComments = () => {
 
   return (
     <div className="comment-chain">
-      {console.log(commentsForPost)}
-      {commentsForPost.map((comment, index) => {
-        return (
-          <div className="comment">
-            <p className="author" key={"author: " + index}>
-              {comment.data.author}
-            </p>
-            <li key={index} className="comment-contents">
-              {comment.data.body}
-            </li>
-          </div>
-        );
-      })}
+      {commentsForPost
+        .filter((comment) => comment.data.author !== "[deleted]")
+        .map((comment, index) => {
+          return (
+            <div className="comment">
+              <p className="author" key={"author: " + index}>
+                {comment.data.author}
+              </p>
+              <li key={index} className="comment-contents">
+                {comment.data.body}
+              </li>
+            </div>
+          );
+        })}
     </div>
   );
 };
