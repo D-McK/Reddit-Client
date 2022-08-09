@@ -10,8 +10,8 @@
 .comment{
     list-style: none;
     font-weight: bold;
-    background-color: #e9e7e7bf;
-    border-radius: 5px;
+    background-color: var(--color-foreground);
+    border-radius: var(--radius);
     margin: 5px auto;
     padding: 0px 0px 10px 10px;
     width: 95%;

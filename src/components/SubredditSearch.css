@@ -1,8 +1,8 @@
 .search-container{
     display: flex;  
-    background-color: rgb(255, 255, 255);
-    box-shadow: 5px 5px 10px rgb(164, 164, 167);
-    border-radius: 5px;
+    background-color: var(--color-background);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--radius);
     justify-content: space-between;
     padding: 10px 40px;
 }
@@ -14,7 +14,7 @@
 .search-bar .search-box{
     border: none;
     background-color: #eeeded;
-    border-radius: 5px;
+    border-radius: var(--radius);
     padding: 10px;
 }
 .search-bar .submit{
@@ -27,13 +27,13 @@
 }
 button{
     transition: 0.2s;
-    border-radius: 3px;
+    border-radius: var(--radius);
     padding: 3px 8px 9px 8px;
 }
 button:hover{
     transition: 0.2s;
-    background-color: #ff4300;
-    color: white;
+    background-color: var(--color-secondary);
+    color: var(--color-background);
     cursor: pointer;
 }
 .search-icon{
