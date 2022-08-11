@@ -27,7 +27,7 @@ export const PostComments = () => {
     <div className="comment-chain">
       {commentsForPost
         .filter((comment) => comment.data.author !== "[deleted]")
-        .map((comment, index) => {
+        .map((comment) => {
           return (
             <div className="comment" key={"commment: " + comment.data.author}>
               <p className="author">{comment.data.author}</p>
