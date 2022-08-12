@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchComments, selectComments, selectPost } from "../store/postSlice";
 
 import { Skeleton } from "./Skeleton";
-
 import "./PostComments.css";
 
 export const PostComments = () => {

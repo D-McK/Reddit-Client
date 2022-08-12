@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Subreddit/> renders front page on open 1`] = `undefined`;

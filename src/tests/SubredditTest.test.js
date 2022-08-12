@@ -1,13 +1,26 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import React from "react";
 import { Subreddit } from "../components/Subreddit";
+
+import { Provider } from "react-redux";
+import { render } from "@testing-library/react";
 import { setupStore } from "../store/Store";
-import { fetchSubreddit } from "../store/subredditSlice";
-import { renderWithProviders } from "../utils/testutils";
+import { act } from "react-dom/test-utils";
 
-test("should render all page at start", () => {
-  const store = setupStore();
+const store = setupStore();
 
-  store.dispatch(fetchSubreddit("all"));
-  const subreddit = store.getState().subreddit;
-  expect(subreddit.subreddit).toBe("all");
+describe("<Subreddit/>", () => {
+  test("renders front page on open", async () => {
+    const { frontPage } = await act(async () =>
+      render(
+        <Provider store={store}>
+          <Subreddit />
+        </Provider>
+      )
+    );
+    expect(frontPage).toMatchSnapshot();
+  });
+  test("should default render the 'all' page", () => {
+    const subreddit = store.getState().subreddit;
+    expect(subreddit.subreddit).toBe("all");
+  });
 });
