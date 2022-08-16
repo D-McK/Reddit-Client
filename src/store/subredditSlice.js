@@ -23,8 +23,12 @@ export const subredditSlice = createSlice({
     loadedPosts: (state, action) => {
       state.posts.push(action.payload);
     },
-    changeSubreddit: (state) => {
-      state.subreddit = state.typedsubreddit;
+    changeSubreddit: (state, action) => {
+      if (action.payload === undefined) {
+        state.subreddit = state.typedsubreddit;
+      } else {
+        state.subreddit = action.payload;
+      }
     },
     changeSearch: (state, action) => {
       state.typedsubreddit = action.payload;
@@ -44,7 +48,7 @@ export const subredditSlice = createSlice({
   },
 });
 
-export const { subreddit, changeSubreddit, changeSearch } =
+export const { subreddit, changeSubreddit, changeSearch, loadedPosts } =
   subredditSlice.actions;
 export const selectPosts = (state) => state.subreddit.posts;
 export const selectSubreddit = (state) => state.subreddit.subreddit;

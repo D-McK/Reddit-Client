@@ -69,6 +69,7 @@ export const Subreddit = () => {
                 <div className="under-info">
                   <p
                     className="comments"
+                    data-testid="comments"
                     onClick={() => {
                       dispatch(checkPostSelected());
                       dispatch(postSelected(post.data.permalink));
