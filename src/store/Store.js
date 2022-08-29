@@ -7,7 +7,7 @@ const rootReducer = combineReducers({
   comments: postReducer,
 });
 
-export default configureStore({
+export const store = configureStore({
   reducer: rootReducer,
 });
 
