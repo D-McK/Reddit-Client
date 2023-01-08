@@ -1,7 +1,7 @@
 import { Subreddit } from "../../src/components/Subreddit";
 import { setupStore } from "../../src/store/Store";
 
-describe("Subreddit.cy.js", () => {
+describe("SubredditPostComments.cy.js", () => {
   const store = setupStore();
   beforeEach(() => {
     window.store = store;
@@ -10,18 +10,10 @@ describe("Subreddit.cy.js", () => {
       url: "https://www.reddit.com/r/astronomy.json",
     }).as("frontPage");
   });
-  it("Shows the front page", () => {
+  it("Shows a post comments", () => {
     cy.mount(<Subreddit />, { reduxStore: store });
-    cy.wait("@frontPage", { timeout: 15000 })
-      .its("response.statusCode")
-      .should("equal", 200);
+    cy.contains("p", "Comments").first().click();
 
-    cy.get(".post").should("be.visible");
-    cy.window()
-      .its("store")
-      .invoke("getState")
-      .its("subreddit")
-      .its("posts")
-      .should("have.length", 26);
+    cy.get(".comment-chain").should("be.visible");
   });
 });

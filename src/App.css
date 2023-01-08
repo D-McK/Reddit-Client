@@ -1,19 +1,22 @@
 :root{
-  --color-background: #fff;
+  --color-background: #3f3f3f;
+  --color-comments: #1f1f1f;
   --color-foreground: #e9e7e7bf;
   --color-secondary: #ff4300;
-  --box-shadow: 5px 5px 10px rgb(164, 164, 167);
-  --box-shadow-hover: 10px 10px 10px rgb(164, 164, 167);
+  --color-tertiary: #1e66b8;
+  --color-hover: #fff;
+  --box-shadow: 2px 2px 2px #000000;
+  --box-shadow-hover: 2px 2px 20px #000000;
   --radius: 5px;
 }
 
 .App {
   text-align: center;
+  color: #fff;
+  
 }
 body{
-  background-image: url('./image/Untitled\ design\(3\).png');
-  background-repeat: repeat-y;
-  background-size: 100%;
+  background-color: #1f1f1f;
 }
 button {
   border: none;

@@ -1,10 +1,14 @@
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 70px;
+}
 .post {
     display: flex;
     flex-wrap: wrap;
-    max-width: 50%;
-    margin: 30px auto;
+    margin: 30px 0px;
     background-color: var(--color-background);
-    box-shadow: var(--box-shadow);
     border-radius: var(--radius);
     align-items: center;
     transition: 0.2s;
@@ -16,30 +20,26 @@
 }
 
 .post .title {
-    width: 98%;
-    font-size: 25px;
-    font-weight: bold;
+    margin: 0 auto;
+    font-size: 20px;
     list-style: none;
-    padding: 10px 10px;
-    background-color: var(--color-foreground);
+    padding: 20px 10px 0px 10px;
+    background-color: var(--color-background);
+    color: var(--color-hover);
 }
 .post img {
-    display: block;
-    padding: 20px 0;
-    object-fit: cover;  
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0 auto;
+    border-radius: var(--radius);
+    width: 85%;
+    margin: 20px 20px 20px 0px;
+}
+.content {
+    display: flex;
 }
 .under-info{
     display: flex;
     width: 100%;
     justify-content: space-around;
     padding: 10px 0px;
-}
-.under-info p{
-    font-weight: bold;
-    
 }
 .chat-icon {
     padding-right: 10px;
@@ -49,12 +49,63 @@
 
 .comments, .subreddit-from{
     transition: 0.2s;
-    padding: 5px
+    padding: 5px;
+    color: var(--color-hover);
 }
 .comments:hover, .subreddit-from:hover{
     transition: 0.2s;
-    background-color: var(--color-secondary);
-    color: var(--color-background);
+    background-color: var(--color-comments);
     cursor: pointer;
     border-radius: var(--radius);
+}
+.main-content{
+    width: 60%;
+    float: left;
+    padding-right: 100px;
+}
+.votes{
+    width: 75px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.upvotes{
+    width: 75px;
+}
+.arrows{
+    width: 75px;
+}
+.up-arrow{
+    transition: 0.2s;
+    padding: 5px 0px;
+}
+.down-arrow{
+    transition: 0.2s;
+    padding: 5px 0px;
+}
+.up-arrow:hover{
+    color: var(--color-secondary);
+    fill: var(--color-secondary);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.down-arrow:hover{
+    color: var(--color-tertiary);
+    fill: var(--color-tertiary);
+    cursor: pointer;
+    transition: 0.2s;
+}
+h1{
+    width: 100%;
+    margin: 40px 0px;
+}
+.not-found{
+    display: flex;
+    width: 70%;
+    float: left;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.not-found img{
+    height: 250px;
+    margin: 40px 0px;
 }

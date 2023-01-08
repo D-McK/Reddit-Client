@@ -7,7 +7,19 @@ import {
 } from "../store/subredditSlice";
 import "./SubredditSearch.css";
 
-import RedditLogo from "../image/Reddit_logo_new.png";
+import {
+  astronomyIcon,
+  awwIcon,
+  dataIcon,
+  catsIcon,
+  interestingIcon,
+  landscapesIcon,
+  natureIcon,
+  oldSchoolIcon,
+  picsIcon,
+  starScapesIcon,
+} from "../image/icons";
+
 import { BsSearch } from "react-icons/bs";
 
 export const SubredditSearch = () => {
@@ -19,9 +31,33 @@ export const SubredditSearch = () => {
     dispatch(changeSubreddit(typedSubreddit));
   };
 
+  const icons = [
+    astronomyIcon,
+    awwIcon,
+    catsIcon,
+    starScapesIcon,
+    oldSchoolIcon,
+    picsIcon,
+    interestingIcon,
+    dataIcon,
+    landscapesIcon,
+    natureIcon,
+  ];
+
+  const subreddits = [
+    "astronomy",
+    "aww",
+    "cats",
+    "imaginarystarscapes",
+    "oldschoolcool",
+    "pics",
+    "damnthatsinteresting",
+    "dataisbeautiful",
+    "imaginarylandscapes",
+    "natureisbeautiful",
+  ];
   return (
-    <div className="search-container">
-      <img src={RedditLogo} alt="reddit logo" />
+    <div className="subreddit-search-box">
       <div className="search-bar">
         <form onSubmit={submitHandler}>
           <input
@@ -34,6 +70,19 @@ export const SubredditSearch = () => {
             <BsSearch className="search-icon" />
           </button>
         </form>
+      </div>
+      <div className="suggested-subreddits">
+        {subreddits.map((subreddit, index) => {
+          return (
+            <div
+              className="suggest-subreddit-info"
+              onClick={() => dispatch(changeSubreddit(subreddit))}
+            >
+              <img src={icons[index]} alt={`Icon for ${subreddit} subreddit`} />
+              <p>{subreddit}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

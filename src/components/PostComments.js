@@ -14,26 +14,22 @@ export const PostComments = () => {
     dispatch(fetchComments(selectedPost));
   }, [dispatch, selectedPost]);
 
-  if (commentsForPost.length === 0) {
-    return (
-      <div className="loading">
-        <Skeleton />
-      </div>
-    );
-  }
-
   return (
     <div className="comment-chain">
-      {commentsForPost
-        .filter((comment) => comment.data.author !== "[deleted]")
-        .map((comment) => {
-          return (
-            <div className="comment" key={"commment: " + comment.data.author}>
-              <p className="author">{comment.data.author}</p>
-              <li className="comment-contents">{comment.data.body}</li>
-            </div>
-          );
-        })}
+      {commentsForPost.length === 0 ? (
+        <Skeleton />
+      ) : (
+        commentsForPost
+          .filter((comment) => comment.data.author !== "[deleted]")
+          .map((comment) => {
+            return (
+              <div className="comment" key={"commment: " + comment.data.author}>
+                <p className="author">{comment.data.author}</p>
+                <li className="comment-contents">{comment.data.body}</li>
+              </div>
+            );
+          })
+      )}
     </div>
   );
 };

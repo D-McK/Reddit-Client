@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     min-width: 100%;
-    min-height: 100%;
     flex-wrap: wrap;
     text-align: left;
 }
@@ -10,7 +9,7 @@
 .comment{
     list-style: none;
     font-weight: bold;
-    background-color: var(--color-foreground);
+    background-color: var(--color-comments);
     border-radius: var(--radius);
     margin: 5px auto;
     padding: 0px 0px 10px 10px;
@@ -23,11 +22,4 @@
 .author{
     padding: 10px 0px;
     margin: 0;
-}
-.loading{   
-    display: flex;
-    margin: 0 auto;
-    width: 95%;
-    padding: 10px 0px;
-    height: 75px;
 }

@@ -4,7 +4,7 @@ import { getFrontPage } from "../api/RedditAPIs";
 const initialState = {
   posts: [],
   status: "idle",
-  subreddit: "all",
+  subreddit: "astronomy",
   typedsubreddit: "",
 };
 

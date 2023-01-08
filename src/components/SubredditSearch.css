@@ -1,42 +1,91 @@
-.search-container{
+.subreddit-search-box{
+    display: flex;
+    width: 25%;
+    flex-wrap: wrap;
+    margin: 30px 30px;
+    background-color: var(--color-background);
+    border-radius: var(--radius);
+    float: right;
+}
+.header-bar{
     display: flex;  
     background-color: var(--color-background);
-    box-shadow: var(--box-shadow);
     border-radius: var(--radius);
     justify-content: space-between;
     padding: 10px 40px;
+    margin: 10px;
+    background-image: url('../image/background.png');
+    background-position:center;
+    background-repeat: repeat;
 }
 
 .search-bar{
     display: flex;
-    align-items: center;
+    height: 35px;
+    margin: 15px 10px;
+    width: 100%;
 }
 .search-bar .search-box{
     border: none;
-    background-color: #eeeded;
+    background-color: var(--color-hover);
     border-radius: var(--radius);
     padding: 10px;
+    width: 80%;
 }
 .search-bar .submit{
     font-size: 20px;
 }
 
-.search-container img{
-    width: 300px;
-    height: 100px;
+.header-bar img{
+    width: 200px;
+    height: 70px;
 }
 button{
     transition: 0.2s;
     border-radius: var(--radius);
-    padding: 3px 8px 9px 8px;
+    padding: 3px 9px 9px 9px; 
 }
 button:hover{
     transition: 0.2s;
-    background-color: var(--color-secondary);
-    color: var(--color-background);
+    background-color: var(--color-comments);
+    color: var(--color-hover);
     cursor: pointer;
 }
 .search-icon{
     position: relative;
     top: 5px;
+    color: #fff;
+}
+form{
+    width: 100%;
+}
+.suggested-subreddits{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.suggest-subreddit-info{
+    width: 90%;
+    transition: 0.2s;
+}
+.suggest-subreddit-info:hover{
+    border-radius: var(--radius);
+    background-color: var(--color-comments);
+    transition: 0.2s;
+    cursor: pointer;
+}
+.suggested-subreddits img{
+    border-radius: 50%;
+    max-width: 10%;
+    max-height: 5%;
+    float: left;
+    margin: 10px 0px 0px 20px;
+}
+.suggested-subreddits p{
+    margin-left: 20px;
+}
+.suggested-subreddits hr{
+    width: 100%;
 }

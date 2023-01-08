@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-syntax-jsx": "^7.18.6",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -12,6 +13,8 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "babel-plugin-istanbul": "^6.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "enzyme-adapter-react-16": "^1.15.6",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
@@ -24,19 +27,21 @@
     "react-scripts": "5.0.1",
     "react-test-renderer": "^18.2.0",
     "react-transition-group": "^4.4.0",
+    "typeface-roboto": "^1.1.13",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "eject": "react-scripts eject"
+    "test": "nyc cypress",
+    "eject": "react-scripts eject",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ]
   },
   "browserslist": {
@@ -53,14 +58,26 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
-    "cypress": "^10.5.0",
+    "@bahmutov/cypress-code-coverage": "^1.3.2",
+    "@cypress/code-coverage": "^3.10.0",
+    "@cypress/instrument-cra": "^1.4.0",
+    "cypress": "^12.2.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "jest-environment-jsdom": "^28.1.3",
-    "msw": "^0.44.2"
+    "msw": "^0.44.2",
+    "nyc": "^15.1.0"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  }
+    "nyc": {
+      "all": true,
+      "excludeAfterRemap": true,
+      "include": "src/**/*.js",
+      "exclude": [
+        "cypress/**/*.js",
+        "src/**/*.cy.js",
+        "src/**/*.test.js",
+        "src/setupTests.js",
+        "src/image/icons/index.js",
+        "src/utils/testutils.js"
+      ]
+    }
 }

@@ -20,9 +20,6 @@ export const postSlice = createSlice({
   name: "comments",
   initialState: initialState,
   reducers: {
-    loadedComments: (state, action) => {
-      state.comments.push(action.payload);
-    },
     postSelected: (state, action) => {
       state.post = action.payload;
     },
